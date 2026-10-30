@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# KI- und Suchmaschinen-Crawler ausdrücklich erlaubt
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Claude-SearchBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://www.ibn-hamdis.de/sitemap.xml

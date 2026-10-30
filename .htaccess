@@ -1,0 +1,20 @@
+# IONOS / Apache
+RewriteEngine On
+# ohne www -> www, immer HTTPS
+RewriteCond %{HTTP_HOST} ^ibn-hamdis\.de$ [NC]
+RewriteRule ^ https://www.ibn-hamdis.de%{REQUEST_URI} [L,R=301]
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://www.ibn-hamdis.de%{REQUEST_URI} [L,R=301]
+# alte Adressen /gedichte/<nr>.html -> /gedicht-<nr>.html
+RewriteRule ^gedichte/([a-z]+)\.html$ /gedicht-$1.html [L,R=301]
+RewriteRule ^gedicht-viii\.html$ /gedicht-vii.html [L,R=301]
+
+ErrorDocument 404 /404.html
+DirectoryIndex index.html
+AddDefaultCharset UTF-8
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType text/css "access plus 1 month"
+</IfModule>
